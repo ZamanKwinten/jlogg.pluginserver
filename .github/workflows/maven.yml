@@ -20,7 +20,7 @@ jobs:
           servers: >
             [{
               "id":"jlogg",
-              "username":"${{secrets.GH_PACKAGES_USERNAME}}"
+              "username":"${{secrets.GH_PACKAGES_USERNAME}}",
               "password":"${{secrets.GH_PACKAGES_PASSWORD}}"
             }]
       - name: Set Release Version

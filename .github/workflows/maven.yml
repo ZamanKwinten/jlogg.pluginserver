@@ -1,9 +1,7 @@
 name: Release Jlogg PluginServer
 
 on:
-  push:
-    tags:
-      - "[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch
 
 jobs:
   deploy_package:

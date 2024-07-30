@@ -24,8 +24,8 @@ jobs:
               "password":"${{secrets.GH_PACKAGES_PASSWORD}}"
             },{
               "id":"github",
-              "username":"${{env.GITHUB_ACTOR}}",
-              "password":"${{secrets.GITHUB_TOKEN}}"
+              "username":"${{secrets.GH_PACKAGES_USERNAME}}",
+              "password":"${{secrets.GH_PACKAGES_PASSWORD}}"
             }]
       - name: Set Release Version
         run: mvn --batch-mode versions:set -DnewVersion="${{ github.ref_name }}"

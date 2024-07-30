@@ -15,9 +15,17 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+      - uses: whelk-io/maven-settings-xml-action@v22
+        with:
+          serves: >
+            [{
+              "id":"jlogg",
+              "username":"${{secrets.GH_PACKAGES_USERNAME}}"
+              "password":"${{secrets.GH_PACKAGES_PASSWORD}}"
+            }]
       - name: Set Release Version
         run: mvn --batch-mode versions:set -DnewVersion="${{ github.ref_name }}"
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.ARTIFACTORY_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -7,7 +7,7 @@
 	<properties>
 		<maven.compiler.target>17</maven.compiler.target>
 		<maven.compiler.source>17</maven.compiler.source>
-		<jlogg.version>3.0.0</jlogg.version>
+		<jlogg.version>4.0.0</jlogg.version>
 
 		<jersey.version>3.1.7</jersey.version>
 		<jetty.version>12.0.11</jetty.version>

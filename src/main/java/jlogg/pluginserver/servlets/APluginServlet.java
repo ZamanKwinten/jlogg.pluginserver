@@ -38,7 +38,13 @@ public abstract class APluginServlet {
 			return Response.ok().build();
 		}
 
-		File jar = Arrays.stream(files).sorted((a, b) -> (int) (b.lastModified() - a.lastModified())).findFirst().get();
+		File jar = Arrays.stream(files).sorted((a, b) -> {
+			if (b.lastModified() - a.lastModified() < 0) {
+				return -1;
+			} else {
+				return 1;
+			}
+		}).findFirst().get();
 		PluginManifestData data = PluginManifestReader.getManifestDataFromJar(jar);
 
 		return JSONResponse.ok(new PluginServerLatestResponse(data, jar.getName()));
